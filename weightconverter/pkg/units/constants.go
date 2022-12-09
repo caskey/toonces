@@ -1,4 +1,15 @@
 package units
 
-const FromGstoLbs = 0.00220462
-const FromLbstoGs = 1 / FromGstoLbs
+const (
+	FromGstoLbs = 0.00220462
+	FromLbstoGs = 1 / FromGstoLbs
+)
+
+type weightUnit int
+
+const (
+	Pounds weightUnit = iota
+	Kilograms
+	Ounces
+	Grams
+)

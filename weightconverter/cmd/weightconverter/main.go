@@ -34,6 +34,14 @@ func main() {
 	fmt.Printf("%v grams in lbs is %v\n", inputGrams, units.ConvertGtoLb(inputGrams))
 	fmt.Printf("%v lbs in gs is %v\n", inputLbs, units.ConvertLbtoG(inputLbs))
 
+	for index, input := range flag.Args() {
+		logger.Printf("Processing arg %v: \"%v\"", index, input)
+		if index != 0 {
+			fmt.Print("\n")
+		}
+		fmt.Printf("Cmdline: %v\n", input)
+	}
+
 	logger.Print("Waiting for all tasks to complete.")
 	wg.Wait()
 	logger.Print("Finished.")

@@ -1,2 +1,5 @@
 # toonces
-Streaming and messaging
+TODO: Streaming and messaging
+
+@ weightconverter
+* Convert weights to equivalents

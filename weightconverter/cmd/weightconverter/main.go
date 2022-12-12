@@ -37,13 +37,21 @@ func main() {
 	var converter = units.GetConverter(logger)
 
 	for i, input := range flag.Args() {
-		logger.Printf("Processing arg %v: \"%v\"", i, input)
-		if i != 0 {
-			fmt.Print("\n")
-		}
 		// fmt.Printf("Cmdline: %v\n", input)
-		fmt.Printf("%v", converter.Convert(input))
-		logger.Printf("Done rocessing arg %v: \"%v\"", i, input)
+		wg.Add(1)
+
+		i := i
+		in := input
+
+		go func() {
+			if i != 0 {
+				fmt.Print("\n")
+			}
+			logger.Printf("Processing arg %v: \"%v\"", i, in)
+			fmt.Printf("%v", converter.Convert(in))
+			logger.Printf("Done rocessing arg %v: \"%v\"", i, in)
+			wg.Done()
+		}()
 	}
 
 	logger.Print("Waiting for all tasks to complete.")

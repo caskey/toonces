@@ -83,7 +83,7 @@ LDFLAGS += $(EXT_LDFLAGS)
 # LDFLAGS += -X helm.sh/helm/v3/pkg/chartutil.k8sVersionMajor=$(K8S_MODULES_MAJOR_VER)
 # LDFLAGS += -X helm.sh/helm/v3/pkg/chartutil.k8sVersionMinor=$(K8S_MODULES_MINOR_VER)
 
-.PHONY: all
+#.PHONY: all
 all: build
 
 # ------------------------------------------------------------------------------
